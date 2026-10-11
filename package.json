@@ -1,0 +1,45 @@
+{
+  "name": "video-commerce-ai",
+  "version": "0.11.0",
+  "description": "AI workflow engine for WeChat Channels video commerce operations.",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "vca": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "check": "npm run check:cli && npm run check:web && npm run check:tests",
+    "check:cli": "tsc -p tsconfig.build.json --noEmit",
+    "check:web": "tsc -p tsconfig.web.json --noEmit",
+    "check:tests": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@gradio/client": "^2.3.1",
+    "@openai/codex-sdk": "^0.145.0",
+    "commander": "^15.0.0",
+    "lucide-react": "^1.26.0",
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/coverage-v8": "^4.1.10",
+    "esbuild": "^0.25.0",
+    "playwright-core": "^1.62.1",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "postcss": "8.5.22",
+    "sharp": "0.35.3"
+  }
+}

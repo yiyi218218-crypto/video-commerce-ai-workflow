@@ -1,0 +1,22 @@
+{
+  "workflow": "phase0_demo",
+  "version": "1.0.0",
+  "description": "Phase 0 framework verification with a human checkpoint.",
+  "steps": [
+    {
+      "id": "capture",
+      "agent": "phase0_echo",
+      "input": {
+        "message": "$.input.message"
+      },
+      "checkpoint": true
+    },
+    {
+      "id": "finish",
+      "agent": "phase0_echo",
+      "input": {
+        "message": "$.steps.capture.message"
+      }
+    }
+  ]
+}

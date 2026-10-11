@@ -1,0 +1,39 @@
+{
+  "workflow": "performance_optimization",
+  "version": "1.0.0",
+  "description": "Analyze a published video and feed an evidence-based optimization brief into the next content plan.",
+  "steps": [
+    {
+      "id": "product_analysis",
+      "agent": "product_agent",
+      "input": "$.input.product",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "data_analysis",
+      "agent": "data_analysis_agent",
+      "input": "$.input.performance",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "content_plan",
+      "agent": "content_agent",
+      "input": {
+        "product": "$.input.product",
+        "product_insight": "$.steps.product_analysis",
+        "optimization_brief": "$.steps.data_analysis.analysis.optimization_brief"
+      },
+      "checkpoint": true,
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    }
+  ]
+}

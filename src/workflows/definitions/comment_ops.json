@@ -1,0 +1,17 @@
+{
+  "workflow": "comment_ops",
+  "version": "1.0.0",
+  "description": "Generate reviewed comment reply recommendations without sending them.",
+  "steps": [
+    {
+      "id": "comment_reply",
+      "agent": "comment_agent",
+      "input": "$.input",
+      "checkpoint": true,
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    }
+  ]
+}

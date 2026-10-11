@@ -1,0 +1,30 @@
+{
+  "workflow": "video_sales_phase1",
+  "version": "1.1.0",
+  "description": "Phase 1 product analysis and content planning workflow.",
+  "steps": [
+    {
+      "id": "product_analysis",
+      "agent": "product_agent",
+      "input": "$.input.product",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "content_plan",
+      "agent": "content_agent",
+      "input": {
+        "product": "$.input.product",
+        "product_insight": "$.steps.product_analysis",
+        "account_operation_profile": "$.input.account_operation_profile?"
+      },
+      "checkpoint": true,
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    }
+  ]
+}

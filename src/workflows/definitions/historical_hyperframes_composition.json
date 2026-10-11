@@ -1,0 +1,12 @@
+{
+  "workflow": "historical_hyperframes_composition",
+  "version": "1.0.0",
+  "description": "Compose a renderable HyperFrames project from a historical short-video blueprint and local asset manifest.",
+  "steps": [
+    {
+      "id": "hyperframes_composition",
+      "agent": "historical_hyperframes_composer_agent",
+      "input": "$.input"
+    }
+  ]
+}

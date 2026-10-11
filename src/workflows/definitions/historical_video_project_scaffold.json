@@ -1,0 +1,26 @@
+{
+  "workflow": "historical_video_project_scaffold",
+  "version": "1.0.0",
+  "description": "Create a historical short-video blueprint and scaffold a local HyperFrames production package.",
+  "steps": [
+    {
+      "id": "production_blueprint",
+      "agent": "historical_short_video_agent",
+      "input": "$.input.blueprint_request",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "project_scaffold",
+      "agent": "historical_video_project_agent",
+      "input": {
+        "blueprint": "$.steps.production_blueprint",
+        "project_slug": "$.input.project_slug",
+        "project_root": "$.input.project_root?",
+        "overwrite_existing_scaffold": "$.input.overwrite_existing_scaffold?"
+      }
+    }
+  ]
+}

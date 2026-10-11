@@ -1,0 +1,62 @@
+{
+  "workflow": "video_sales_phase2",
+  "version": "1.1.0",
+  "description": "Phase 2 product, content, script, and live sales workflow.",
+  "steps": [
+    {
+      "id": "product_analysis",
+      "agent": "product_agent",
+      "input": "$.input.product",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "content_plan",
+      "agent": "content_agent",
+      "input": {
+        "product": "$.input.product",
+        "product_insight": "$.steps.product_analysis",
+        "account_operation_profile": "$.input.account_operation_profile?"
+      },
+      "checkpoint": true,
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "script_bundle",
+      "agent": "script_agent",
+      "input": {
+        "product": "$.input.product",
+        "product_insight": "$.steps.product_analysis",
+        "content_plan": "$.steps.content_plan",
+        "selected_direction_id": "$.checkpoints.content_plan.selected_direction_id",
+        "production_context": "$.input.production_context",
+        "account_operation_profile": "$.input.account_operation_profile?"
+      },
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    },
+    {
+      "id": "live_playbook",
+      "agent": "live_agent",
+      "input": {
+        "product": "$.input.product",
+        "product_insight": "$.steps.product_analysis",
+        "content_plan": "$.steps.content_plan",
+        "selected_direction_id": "$.checkpoints.content_plan.selected_direction_id",
+        "script_bundle": "$.steps.script_bundle",
+        "live_context": "$.input.live_context"
+      },
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    }
+  ]
+}

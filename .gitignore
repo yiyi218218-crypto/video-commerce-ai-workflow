@@ -1,0 +1,44 @@
+# Credentials and local configuration
+.env
+.env.*
+*secret*
+*credential*
+*.pem
+*.p12
+*.pfx
+*.key
+
+# Runtime records, generated media, and local datasets
+data/
+assets/
+videos/
+nova-first-video/
+examples/
+tests/datasets/
+clean-audit/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.jsonl
+*.sqlite*
+*.db
+*.log
+
+# Dependencies and build output
+node_modules/
+dist/
+out/
+coverage/
+.next/
+.open-next/
+.venv*/
+*.tsbuildinfo
+cache/
+tmp/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

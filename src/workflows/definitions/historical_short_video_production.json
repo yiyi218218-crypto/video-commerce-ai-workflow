@@ -1,0 +1,16 @@
+{
+  "workflow": "historical_short_video_production",
+  "version": "1.0.0",
+  "description": "Plan a non-commercial historical short-video production blueprint for WeChat Channels.",
+  "steps": [
+    {
+      "id": "production_blueprint",
+      "agent": "historical_short_video_agent",
+      "input": "$.input",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    }
+  ]
+}

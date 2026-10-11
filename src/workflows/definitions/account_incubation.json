@@ -1,0 +1,16 @@
+{
+  "workflow": "account_incubation",
+  "version": "1.0.0",
+  "description": "Non-commercial account launch workflow that plans the first week and three review-ready video briefs.",
+  "steps": [
+    {
+      "id": "incubation_plan",
+      "agent": "account_incubation_agent",
+      "input": "$.input",
+      "retry": {
+        "maxAttempts": 2,
+        "backoffMs": 500
+      }
+    }
+  ]
+}
