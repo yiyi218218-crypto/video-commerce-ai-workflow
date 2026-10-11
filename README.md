@@ -1,8 +1,8 @@
 # Video Commerce AI Workflow
 
-Source review draft for an AI-assisted video commerce workflow. The code models product selection, script generation, review, video project planning, and operator-controlled publishing steps. It uses typed schemas, workflow definitions, provider adapters, and local job state.
+Public portfolio snapshot of an AI-assisted video commerce workflow. The code models product selection, script generation, review, video project planning, and operator-controlled publishing steps. It uses typed schemas, workflow definitions, provider adapters, and local job state.
 
-**Status:** Local prototype. This snapshot is intended for code review and testing. It is not a hosted service, and it contains no account credentials, real campaign data, media, or recorded publishing results. Live publishing and external provider calls require separate local configuration and human authorization. No production impact or revenue is claimed.
+**Status:** Local prototype for code review and testing. It is not a hosted service, and it contains no account credentials, real campaign data, media, or recorded publishing results. Live publishing and external provider calls require separate local configuration and human authorization. No production impact or revenue is claimed.
 
 ## What the code demonstrates
 
@@ -41,4 +41,4 @@ This project demonstrates AI workflow engineering that is relevant to remote AI 
 
 ## Attribution and licensing
 
-This snapshot is derived from the owner's local Video Commerce AI workspace. Third-party package dependencies are listed in package-lock.json; no third-party media or vendored library code is included. No license grant is included in this draft. The owner should choose a license and confirm rights to every included component before making a repository public.
+This snapshot is derived from the owner's local Video Commerce AI workspace. Third-party package dependencies are listed in package-lock.json; no third-party media or vendored library code is included. No license grant is provided for this source snapshot.
